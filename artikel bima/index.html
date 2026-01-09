@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIG Monitoring Kondisi Air Laut dan Cuaca | Kabupaten Pati</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet" />
+  <style>
+    body { scroll-behavior: smooth; }
+    header { background: linear-gradient(135deg, #0d6efd, #20c997); color: white; padding: 100px 20px; }
+    section { padding: 60px 0; }
+    #map { height: 400px; border-radius: 10px; }
+    footer { background: #0d6efd; color: white; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">SIG Pati</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#pendahuluan">Pendahuluan</a></li>
+        <li class="nav-item"><a class="nav-link" href="#rumusan">Rumusan Masalah</a></li>
+        <li class="nav-item"><a class="nav-link" href="#metodologi">Metodologi</a></li>
+        <li class="nav-item"><a class="nav-link" href="#peta">Peta SIG</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kesimpulan">Kesimpulan</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="text-center">
+  <div class="container">
+    <h1 class="fw-bold">Sistem Informasi Geografis</h1>
+    <h4>Monitoring Kondisi Air Laut dan Cuaca</h4>
+    <p class="lead">Wilayah Kabupaten Pati</p>
+  </div>
+</header>
+
+<section id="pendahuluan">
+  <div class="container">
+    <h2>Pendahuluan</h2>
+    <p>
+        Wilayah pesisir sering menghadapi perubahan lingkungan laut dan cuaca yang signifikan yang berdampak pada aktivitas manusia seperti perikanan, transportasi laut, dan pariwisata. Di Indonesia, kemampuan untuk memantau kondisi maritim secara real-time dan visual sangat diperlukan mengingat karakteristik iklim tropis yang mempengaruhi dinamika laut dan cuaca. Sistem Informasi Geografis (SIG) telah digunakan dalam banyak studi untuk mengintegrasikan data spasial seperti batimetri, arus laut, dan parameter meteorologi ke dalam peta tematik yang informatif bagi pengguna dalam perencanaan dan mitigasi risiko. 
+
+
+SIG memungkinkan penggabungan data spasial laut dengan data cuaca maritim, termasuk arah angin, kecepatan angin, tinggi gelombang, dan parameter lainnya untuk menghasilkan peta yang mudah ditafsirkan sebagai alat bantu pengambilan keputusan. Studi pemantauan kondisi laut di perairan Cilacap dengan SIG menunjukkan bagaimana peta laut dapat memvisualisasikan dinamika lingkungan laut seperti kecepatan arus dan arah angin secara spasial. 
+
+
+Penelitian penggunaan SIG di konteks maritim juga mendukung efektivitas dalam pengawasan laut melalui integrasi berbagai sumber data geospasial dan mendukung sistem informasi maritim modern.
+    </p>
+  </div>
+</section>
+
+<section id="rumusan" class="bg-light">
+  <div class="container">
+    <h2>Rumusan Masalah</h2>
+    <ol>
+      <li>Bagaimana karakteristik kondisi air laut dan cuaca di wilayah pesisir Kabupaten Pati berdasarkan parameter lingkungan yang relevan, serta bagaimana variasi spasial dan temporal dari parameter tersebut?</li>
+      <li>Bagaimana kondisi eksisting sistem penyediaan informasi kondisi air laut dan cuaca yang saat ini digunakan oleh masyarakat pesisir dan pemerintah daerah Kabupaten Pati, ditinjau dari aspek ketersediaan data, akurasi, keterbaruan, dan kemudahan akses?</li>
+      <li>Bagaimana merancang arsitektur Sistem Informasi Geografis (SIG) yang mampu mengintegrasikan data spasial dan nonspasial terkait kondisi air laut dan cuaca secara terstruktur dan berkelanjutan?</li>
+      <li>Parameter lingkungan apa saja yang paling representatif dan prioritas untuk dimasukkan ke dalam sistem SIG guna menggambarkan kondisi air laut dan cuaca secara komprehensif di wilayah Kabupaten Pati?</li>
+      <li>Bagaimana metode pengolahan data spasial dan nonspasial yang tepat dalam SIG untuk menghasilkan peta tematik kondisi air laut dan cuaca yang akurat dan mudah dipahami?</li>
+      <li>Bagaimana proses visualisasi dan penyajian informasi berbasis peta dalam sistem SIG agar dapat meningkatkan pemahaman pengguna terhadap sebaran kondisi lingkungan laut dan cuaca?</li>
+      <li>Bagaimana tingkat kesesuaian dan keandalan hasil monitoring SIG yang dikembangkan jika dibandingkan dengan data sumber resmi, seperti data instansi meteorologi dan kelautan?</li>
+      <li>Sejauh mana sistem SIG yang dikembangkan dapat dimanfaatkan sebagai alat pendukung pengambilan keputusan bagi masyarakat pesisir dan pemerintah daerah dalam meningkatkan keselamatan aktivitas kelautan dan pengelolaan wilayah pesisir?</li>
+    </ol>
+  </div>
+</section>
+
+<section id="metodologi">
+  <div class="container">
+    <h2>Metodologi Penelitian</h2>
+    <ul>
+      <li>Penelitian ini menggunakan pendekatan penelitian terapan (applied research) dengan metode deskriptif dan spasial. Pendekatan deskriptif digunakan untuk menggambarkan kondisi air laut dan cuaca di wilayah Kabupaten Pati, sedangkan pendekatan spasial digunakan untuk memvisualisasikan dan menganalisis data tersebut dalam bentuk peta tematik menggunakan Sistem Informasi Geografis (SIG).Penelitian ini berfokus pada pengembangan sistem SIG sebagai media monitoring kondisi air laut dan cuaca yang bersifat informatif dan mendukung pengambilan keputusan di wilayah pesisir.</li>
+      <li>Lokasi dan Waktu PenelitianPenelitian dilaksanakan di wilayah pesisir Kabupaten Pati, Provinsi Jawa Tengah, yang berbatasan langsung dengan Laut Jawa. Wilayah penelitian mencakup kecamatan-kecamatan pesisir yang memiliki aktivitas kelautan dan perikanan.Waktu penelitian dilakukan dalam beberapa tahapan, mulai dari pengumpulan data, pengolahan data, pembuatan peta SIG, hingga analisis hasil, dalam rentang waktu yang disesuaikan dengan ketersediaan data sekunder.</li>
+      <li>Penelitian ini menggunakan data sekunder yang diperoleh dari instansi resmi dan sumber ilmiah yang valid</li>
+      <li>Parameter yang dianalisis dalam penelitian ini ditentukan berdasarkan relevansi terhadap keselamatan aktivitas kelautan dan ketersediaan data</li>
+      <li>Pelaksanaan penelitian dilakukan melalui beberapa tahapan sistematis</li>
+      <li>Analisis data dilakukan dengan pendekatan deskriptif dan spasial. Validasi data dilakukan dengan membandingkan hasil pemetaan dengan data sumber resmi untuk memastikan keakuratan informasi yang dihasilkan.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="peta" class="bg-light">
+  <div class="container">
+    <h2>Peta Interaktif SIG</h2>
+    <div id="map"></div>
+    <p class="mt-3">Peta ini merupakan contoh visualisasi SIG wilayah pesisir Kabupaten Pati.</p>
+  </div>
+</section>
+
+<section id="kesimpulan">
+  <div class="container">
+    <h2>Kesimpulan</h2>
+    <p>
+      Penelitian ini menghasilkan Sistem Informasi Geografis (SIG) yang digunakan untuk monitoring kondisi air laut dan cuaca di wilayah Kabupaten Pati. Penerapan SIG memungkinkan integrasi data spasial dan nonspasial secara sistematis, sehingga informasi kondisi lingkungan laut dan cuaca dapat disajikan dalam bentuk peta tematik yang informatif dan mudah diinterpretasikan.
+
+Hasil pemetaan menunjukkan bahwa parameter kondisi air laut dan cuaca, meliputi suhu permukaan laut, tinggi gelombang, kecepatan dan arah angin, serta curah hujan, dapat divisualisasikan secara efektif melalui SIG. Penyajian informasi berbasis spasial ini memberikan gambaran sebaran kondisi lingkungan secara lebih jelas dibandingkan penyajian data nonspasial, sehingga mendukung proses analisis dan pemahaman kondisi wilayah pesisir.
+
+Pengembangan SIG dalam penelitian ini memberikan kontribusi dalam mendukung kebutuhan informasi bagi masyarakat pesisir dan pemerintah daerah. Sistem yang dihasilkan berpotensi digunakan sebagai alat pendukung pengambilan keputusan terkait keselamatan aktivitas kelautan, perencanaan wilayah pesisir, serta pengelolaan sumber daya laut. Dengan demikian, penerapan SIG dapat meningkatkan efektivitas monitoring kondisi air laut dan cuaca di wilayah Kabupaten Pati.
+
+Secara keseluruhan, hasil penelitian menunjukkan bahwa Sistem Informasi Geografis merupakan pendekatan yang tepat dan relevan untuk monitoring kondisi air laut dan cuaca di wilayah pesisir. Pengembangan lebih lanjut terhadap sistem ini masih terbuka, terutama dalam hal penambahan parameter lingkungan, peningkatan resolusi dan periode data, serta integrasi dengan sistem berbasis web atau aplikasi mobile guna memperluas aksesibilitas dan pemanfaatan informasi.
+    </p>
+  </div>
+</section>
+
+<footer class="text-center py-3">
+  <p class="mb-0">© 2026 SIG Monitoring Laut dan Cuaca Kabupaten Pati</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([-6.744, 111.04], 10);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+
+  L.marker([-6.744, 111.04]).addTo(map)
+    .bindPopup('Wilayah Pesisir Kabupaten Pati')
+    .openPopup();
+</script>
+
+</body>
+</html>
